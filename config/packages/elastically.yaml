@@ -1,0 +1,18 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  JoliCode\Elastically\Transport\HttpClientTransport: ~
+
+elastically:
+  connections:
+    default:
+      client:
+        host: '%env(ELASTICSEARCH_HOST)%'
+        port: '%env(ELASTICSEARCH_PORT)%'
+        transport: JoliCode\Elastically\Transport\HttpClientTransport
+      mapping_directory: '%kernel.project_dir%/config/elasticsearch'
+      bulk_size: 100
+      index_class_mapping:
+        document: App\Model\Document

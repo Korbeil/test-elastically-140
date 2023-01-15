@@ -1,0 +1,15 @@
+settings:
+  number_of_replicas: 3
+  number_of_shards: 1
+  refresh_interval: 10s
+mappings:
+  dynamic: false
+  properties:
+    name:
+      type: text
+      analyzer: english
+      fields:
+        keyword:
+          type: keyword
+    age:
+      type: short
